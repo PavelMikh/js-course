@@ -10,7 +10,17 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PavelMikh/js-course.git"
+  },
   "devDependencies": {
-    "rollup": "^2.59.0"
+    "@babel/core": "^7.16.0",
+    "@rollup/plugin-babel": "^5.3.0",
+    "rollup": "^2.59.0",
+    "rollup-plugin-img": "^1.1.0",
+    "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-serve": "^1.1.0",
+    "rollup-plugin-styles": "^3.14.1"
   }
 }
