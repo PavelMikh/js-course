@@ -1,1 +1,1 @@
-Учебный курс по JavaScript.
+Учебный курс по JavaScript
