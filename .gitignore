@@ -10,6 +10,6 @@
 # Ignore all local history of files
 .history
 
-node_modules
 dist
+node_modules
 my_comments
