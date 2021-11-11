@@ -1,5 +1,5 @@
 import './index.css';
-import JS_IMAGE from './assets/js.png'
+import JS_IMAGE from './assets/images/js.png'
 
 console.log('hello world');
 
