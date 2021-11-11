@@ -1,4 +1,5 @@
 import './index.css';
+import JS_IMAGE from './assets/js.png'
 
 console.log('hello world');
 
@@ -7,7 +8,7 @@ title.textContent = 'I love JavaScript!';
 title.classList.add('title');
 
 const img = document.createElement('img');
-img.src = './assets/js.png';
+img.src = JS_IMAGE;
 img.classList.add('image');
 
 document.body.insertAdjacentElement('beforeend', title);

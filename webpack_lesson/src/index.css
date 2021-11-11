@@ -1,0 +1,12 @@
+.title {
+    color: #ffe100;
+    text-align: center;
+    margin-bottom: 5vw;
+}
+
+.image {
+    display: block;
+    width: 25vw;
+    height: auto;
+    margin: 0 auto;
+}
