@@ -1,9 +1,36 @@
 export class DonateForm {
     #container
+    #totalAmount
 
-    constructor() {
+    constructor(totalAmount, createDonate) {
+        this.createDonate = createDonate;
+        this.totalAmount = totalAmount;
         this.#container = document.createElement('form');
         this.#container.classList.add('donate-form');
+        this.init();
+    }
+
+    init() {
+        this.#container.addEventListener('submit', (event) => this.submitHandler(event));
+    }
+
+    submitHandler(e) {
+        e.preventDefault();
+        const {target} = e;
+        const input = target.querySelector('.donate-form__donate-input');
+        const amount = input.value;
+
+        if (amount) {
+            const date = Date.now();
+        
+            this.createDonate({date, amount});
+            input.value = '';
+        } else {
+            // TODO: show validation tip.
+            console.log('validation tip');
+        }
+
+        
     }
 
     render() {
@@ -32,5 +59,11 @@ export class DonateForm {
         this.#container.append(totalAmount, label, button);
 
         return this.#container;
+    }
+
+    updateTotalAmount(newAmount) {
+        const totalAmountHTML = document.querySelector('#total-amount');
+        console.log('total', totalAmountHTML.textContent);
+        totalAmountHTML.textContent = `${Number(totalAmountHTML.textContent) + newAmount}$`;
     }
 }
