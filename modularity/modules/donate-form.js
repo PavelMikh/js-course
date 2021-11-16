@@ -1,10 +1,12 @@
 export class DonateForm {
     #container
     #totalAmount
+    #currencySymbol
 
-    constructor(totalAmount, createDonate) {
+    constructor(totalAmount, currencySymbol, createDonate) {
+        this.#currencySymbol = currencySymbol;
         this.createDonate = createDonate;
-        this.totalAmount = totalAmount;
+        this.#totalAmount = totalAmount;
         this.#container = document.createElement('form');
         this.#container.classList.add('donate-form');
         this.init();
@@ -18,10 +20,10 @@ export class DonateForm {
         e.preventDefault();
         const {target} = e;
         const input = target.querySelector('.donate-form__donate-input');
-        const amount = input.value;
+        const amount = Number(input.value);
 
         if (amount) {
-            const date = Date.now();
+            const date = new Date();
         
             this.createDonate({date, amount});
             input.value = '';
@@ -29,17 +31,16 @@ export class DonateForm {
             // TODO: show validation tip.
             console.log('validation tip');
         }
-
-        
     }
 
     render() {
         const totalAmount = document.createElement('h1');
         totalAmount.id = 'total-amount';
+        totalAmount.textContent = `${this.#totalAmount}${this.#currencySymbol}`;
 
         const label = document.createElement('label');
         label.classList.add('donate-form__input-label');
-        label.textContent = 'Введите сумму в $';
+        label.textContent = `Введите сумму в ${this.#currencySymbol}`;
 
         const input = document.createElement('input');
         input.classList.add('donate-form__donate-input');
@@ -63,7 +64,7 @@ export class DonateForm {
 
     updateTotalAmount(newAmount) {
         const totalAmountHTML = document.querySelector('#total-amount');
-        console.log('total', totalAmountHTML.textContent);
-        totalAmountHTML.textContent = `${Number(totalAmountHTML.textContent) + newAmount}$`;
+        newAmount = Number.parseInt(newAmount);
+        totalAmountHTML.textContent = newAmount + `${this.#currencySymbol}`;
     }
 }
