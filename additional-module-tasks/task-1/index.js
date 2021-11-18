@@ -3,19 +3,16 @@ const range = {
     max: 1937
 }
 
-const filteredNumbers = [];
+let result = null;
 
-let i = range.min;
-while(i <= range.max) {
+let i = range.max;
+while(i >= range.min) {
     if ((i % 3 === 0 && i % 7 === 0) && (i % 2 !== 0 && i % 5 !== 0)) {
-        filteredNumbers.push(i);
+        result = i;
+        break;
     }
 
-    i++;
+    i--;
 }
-
-filteredNumbers.sort((a, b) => b - a);
-
-const result = filteredNumbers[0];
 
 console.log('result', result);
